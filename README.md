@@ -17,47 +17,15 @@ Not all endpoints are made publicly accessible. Please feel free to get in touch
 The API is very straightforward. No authentication required. Make Get requests to:  
 [https://the-nyc-asp-api.vercel.app/{endpoint}](https://the-nyc-asp-api.vercel.app)
 
-Endpoint
+| Endpoint      | Description | Link     |
+| :---        |    :----:   |          ---: |
+| /v1/today      | Will return today data 📝.      | [View](https://the-nyc-asp-api.vercel.app/v1/today)   |
+| /v1/yesterday   | Will return yesterday data 📝.       | [View](https://the-nyc-asp-api.vercel.app/v1/yesterday)     |
+| /v1/tomorrow     | Will return tomorrow data 📝.      | [View](https://the-nyc-asp-api.vercel.app/v1/tomorrow)   |
+| /v1/date/:MMDDYY   | Will return single data based on the date. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/date/102722)     |
+| /v1/holiday      | Will return all the holidays of the year. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/holiday)  |
+| /v1/7days   | Will return the next 7 days data. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/7days)      |
 
-Description
-
-Link
-
-/v1/today
-
-Will return today data 📝.
-
-[View](https://the-nyc-asp-api.vercel.app/v1/today)
-
-/v1/yesterday
-
-Will return yesterday data 📝.
-
-[View](https://the-nyc-asp-api.vercel.app/v1/yesterday)
-
-/v1/tomorrow
-
-Will return tomorrow data 📝.
-
-[View](https://the-nyc-asp-api.vercel.app/v1/tomorrow)
-
-/v1/date/:MMDDYY
-
-Will return single data based on the date. 📝
-
-[View](https://the-nyc-asp-api.vercel.app/v1/date/102722)
-
-/v1/holiday
-
-Will return all the holidays of the year. 📝
-
-[View](https://the-nyc-asp-api.vercel.app/v1/holiday)
-
-/v1/7days
-
-Will return the next 7 days data. 📝
-
-[View](https://the-nyc-asp-api.vercel.app/v1/7days)
 
 About This Api
 --------------
