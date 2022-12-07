@@ -5811,10 +5811,10 @@ const dataApi = [
     "dateTxt": "Thursday",
     "monthNum": "12",
     "monthText": "December",
-    "aspRules": "In Effect",
+    "aspRules": "Suspended",
     "muniMeters": "Pay",
     "signStatus": "Stopping, standing or parking are NOT permitted.",
-    "aspStatus": "Alternate side parking rules are in effect",
+    "aspStatus": "Alternate side parking rules are NOT in effect",
     "meterStatus": "Parking meters are in effect"
   },
   {
