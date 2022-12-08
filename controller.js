@@ -24,7 +24,7 @@ let date = ("0" + d.getDate()).slice(-2);
 // date time in YYYY-MM-DD format
 //let date_time = year + "-" + month + "-" + date;
 let today = month + "/" + date + "/" + year; // "11/13/2022"
-console.log(today);
+//console.log(today);
 
 
 
@@ -41,7 +41,7 @@ let y_mm = String(y.getMonth() + 1).padStart(1, '0'); // 11
 let y_yyyy = y.getFullYear();  // 2022
 
 let yesterday = y_mm +'/'+ y_date +'/'+ y_yyyy;   //  -> 11/12/2022
-console.log(yesterday);
+//console.log(yesterday);
 
 
 // Tomorrow
@@ -56,7 +56,7 @@ let t_mm = String(t.getMonth() + 1).padStart(1, '0'); // 11
 let t_yyyy = t.getFullYear();  // 2022
 
 let tomorrow = t_mm +'/'+ t_date +'/'+ t_yyyy;   //  -> 11/14/2022
-console.log(tomorrow);
+//console.log(tomorrow);
 
 // Next 7 days start & end
 const n = new Date(d);
