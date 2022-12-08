@@ -31,6 +31,7 @@ let today = month + "/" + date + "/" + year; // "11/13/2022"
 //
 // Yesterday
 const y = new Date(d);
+//console.log(y);
 y.setDate(y.getDate() - 1);
 //let y_dd = String(y.getDate()).padStart(1, '0'); // 17
 // date as (DD) format
