@@ -48,7 +48,7 @@ let yesterday = y_mm +'/'+ y_date +'/'+ y_yyyy;   //  -> 11/12/2022
 // Tomorrow
 const t = new Date(d);
 t.setDate(t.getDate() + 1);
-let t_dd = String(t.getDate()).padStart(1, '0'); // 19
+//let t_dd = String(t.getDate()).padStart(1, '0'); // 19
 // date as (DD) format
 let t_date = ("0" + t.getDate()).slice(-2);
 //let t_day = weekday[t.getDay()];   // Thursday
