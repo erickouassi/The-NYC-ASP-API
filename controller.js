@@ -24,7 +24,7 @@ let date = ("0" + d.getDate()).slice(-2);
 // date time in YYYY-MM-DD format
 //let date_time = year + "-" + month + "-" + date;
 let today = month + "/" + date + "/" + year; // "11/13/2022"
-//console.log(today);
+console.log(today);
 
 
 
@@ -32,27 +32,31 @@ let today = month + "/" + date + "/" + year; // "11/13/2022"
 // Yesterday
 const y = new Date(d);
 y.setDate(y.getDate() - 1);
-let y_dd = String(y.getDate()).padStart(1, '0'); // 17
+//let y_dd = String(y.getDate()).padStart(1, '0'); // 17
+// date as (DD) format
+let y_date = ("0" + y.getDate()).slice(-2);
 //let y_day = weekday[y.getDay()];   // Tuesday
 //let y_month = allMonths[y.getMonth()];  // May
 let y_mm = String(y.getMonth() + 1).padStart(1, '0'); // 11
 let y_yyyy = y.getFullYear();  // 2022
 
-let yesterday = y_mm +'/'+ y_dd +'/'+ y_yyyy;   //  -> 11/12/2022
-//console.log(yesterday);
+let yesterday = y_mm +'/'+ y_date +'/'+ y_yyyy;   //  -> 11/12/2022
+console.log(yesterday);
 
 
 // Tomorrow
 const t = new Date(d);
 t.setDate(t.getDate() + 1);
 let t_dd = String(t.getDate()).padStart(1, '0'); // 19
+// date as (DD) format
+let t_date = ("0" + t.getDate()).slice(-2);
 //let t_day = weekday[t.getDay()];   // Thursday
 //let t_month = allMonths[t.getMonth()];  // May
 let t_mm = String(t.getMonth() + 1).padStart(1, '0'); // 11
 let t_yyyy = t.getFullYear();  // 2022
 
-let tomorrow = t_mm +'/'+ t_dd +'/'+ t_yyyy;   //  -> 11/14/2022
-//console.log(tomorrow);
+let tomorrow = t_mm +'/'+ t_date +'/'+ t_yyyy;   //  -> 11/14/2022
+console.log(tomorrow);
 
 // Next 7 days start & end
 const n = new Date(d);
