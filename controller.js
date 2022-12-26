@@ -65,7 +65,7 @@ n.setDate(n.getDate() + 7);
 let n_dd = String(n.getDate()).padStart(1, '0'); // 19
 //let n_day = weekday[n.getDay()];   // Thursday
 //let n_month = allMonths[n.getMonth()];  // May
-let n_mm = String(t.getMonth() + 1).padStart(1, '0'); // 11
+let n_mm = String(n.getMonth() + 1).padStart(1, '0'); // 11
 let n_yyyy = n.getFullYear();  // 2022
 
 let end_day = n_mm +'/'+ n_dd +'/'+ n_yyyy;   //  -> May 19, 2022
