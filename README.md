@@ -22,7 +22,7 @@ The API is very straightforward. No authentication is required. Make Get request
 | /v1/today      | Will return today data 📝.      | [View](https://the-nyc-asp-api.vercel.app/v1/today)   |
 | /v1/yesterday   | Will return yesterday data 📝.       | [View](https://the-nyc-asp-api.vercel.app/v1/yesterday)     |
 | /v1/tomorrow     | Will return tomorrow data 📝.      | [View](https://the-nyc-asp-api.vercel.app/v1/tomorrow)   |
-| /v1/date/:MMDDYY   | Will return single data based on the date. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/date/123124)     |
+| /v1/date/:MMDDYY   | Will return single data based on the date. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/date/12312024)     |
 | /v1/holiday      | Will return all the holidays of the year. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/holiday)  |
 | /v1/7days   | Will return the next 7 days data. 📝       | [View](https://the-nyc-asp-api.vercel.app/v1/7days)      |
 
