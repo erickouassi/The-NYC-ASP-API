@@ -12,10 +12,31 @@ const server = http.createServer(async (req, res) => {
            "Access-Control-Allow-Origin": "*" });
            res.end(JSON.stringify({ message: "App is active! 🚀" }));
        }
-    // /api/v1 : GET
-    else if (req.url === "/v1/list" && req.method === "GET") {
+
+           // /v1/list2022
+    else if (req.url === "/v1/year2022" && req.method === "GET") {
         // get the data.
-        const allData = await new AppData().getAllData();
+        const allData = await new AppData().getAllData2022();
+        // set the status code, and content-type
+        res.writeHead(200, { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*" });
+        // send the data
+        res.end(JSON.stringify(allData));
+    }
+    // /v1/list2023
+    else if (req.url === "/v1/year2023" && req.method === "GET") {
+        // get the data.
+        const allData = await new AppData().getAllData2023();
+        // set the status code, and content-type
+        res.writeHead(200, { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*" });
+        // send the data
+        res.end(JSON.stringify(allData));
+    }
+    // /v1/list2024
+    else if (req.url === "/v1/year2024" && req.method === "GET") {
+        // get the data.
+        const allData = await new AppData().getAllData2024();
         // set the status code, and content-type
         res.writeHead(200, { "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*" });
@@ -72,8 +93,6 @@ const server = http.createServer(async (req, res) => {
         // send the data
         res.end(JSON.stringify(holidayData));
     }
-    //
-    //
     // /v1 : GET 7 days Data
     else if (req.url === "/v1/7days" && req.method === "GET") {
          // get legal Holiday.
@@ -85,18 +104,6 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify(dataNext7days));
     }
     //
-    // /v1 : GET Year Data
-    else if (req.url === "/v1/year" && req.method === "GET") {
-        // get year data.
-       const dataFullYear = await new AppData().getYearData();
-       // set the status code, and content-type
-       res.writeHead(200, { "Content-Type": "application/json",
-       "Access-Control-Allow-Origin": "*"  });
-       // send the data
-       res.end(JSON.stringify(dataFullYear));
-   }
-   //
-
  // /v1/date/:MMDDYY : GET
  else if (req.url.match(/\/v1\/date\/([0-9]+)/) &&
  req.method === "GET") {

@@ -1,3 +1,10 @@
+//const data = require("./data");
+const data = require("./data_asp_nyc");
+const data2022 = require("./data_asp_nyc_2022");
+const data2023 = require("./data_asp_nyc_2023");
+const data2024 = require("./data_asp_nyc_2024");
+
+
 // Logic behind the functionalities
 var serverTime = "America/New_York";  // America/New_York /
 
@@ -25,7 +32,6 @@ let date = ("0" + d.getDate()).slice(-2);
 //let date_time = year + "-" + month + "-" + date;
 let today = month + "/" + date + "/" + year; // "11/13/2022"
 //console.log(today);
-
 
 
 //
@@ -71,9 +77,6 @@ let n_yyyy = n.getFullYear();  // 2022
 let end_day = n_mm +'/'+ n_dd +'/'+ n_yyyy;   //  -> May 19, 2022
 //console.log(end_day);
 
-//const data = require("./data");
-const data = require("./data_asp_nyc_2023");
-
 
 const index_start = data.map(i => i.fullDate).indexOf(today);
 //console.log(index);
@@ -81,18 +84,29 @@ const index_end = data.map(i => i.fullDate).indexOf(end_day);
 //const id_num = index_end + 1;
 //console.log(id_num);
 
-const start_index = data.map(i => i.dateNum).indexOf("01/01");
+//const start_index = data.map(i => i.dateNum).indexOf("01/01");
 //console.log(start_index);
-const end_index = data.map(i => i.dateNum).indexOf("12/31");
-//console.log(end_index);
+//const end_index = data.map(i => i.dateNum).indexOf("12/31");
+//console.log(end_index); 
+
 
 
 class Controller {
+    // getting all data
+    async getAllData2022() {
+      // return all data
+      return new Promise((resolve, _) => resolve(data2022));
+    }
   // getting all data
-  async getAllData() {
+  async getAllData2023() {
     // return all data
-    return new Promise((resolve, _) => resolve(data));
+    return new Promise((resolve, _) => resolve(data2023));
   }
+    // getting all data
+    async getAllData2024() {
+      // return all data
+      return new Promise((resolve, _) => resolve(data2024));
+    }
 //
   // getting a single data
   async getSingleData(X) {
@@ -126,23 +140,6 @@ const data_7_days = data.slice(index_start, index_end);
     }
   });
 }
-//
-// getting full year data
-async getYearData() {
-    return new Promise((resolve, reject) => {
-      // get the data
-     // slice from 1..3 - add 1 as the end index is not included
-  const year_data = data.slice(start_index, end_index + 1);
-  
-      if (year_data) {
-        // return the data
-        resolve(year_data);
-      } else {
-        // return an error
-        reject(`Object Year data  not found `);
-      }
-    });
-  }
   //
   // getting today data
   async getTodayData() {
@@ -213,7 +210,6 @@ async getYearData() {
       }
     });
   }
-  // add below
   // add above
 }
 module.exports = Controller;
