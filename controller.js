@@ -3,6 +3,7 @@ const data = require("./data_asp_nyc");
 const data2022 = require("./data_asp_nyc_2022");
 const data2023 = require("./data_asp_nyc_2023");
 const data2024 = require("./data_asp_nyc_2024");
+const data2025 = require("./data_asp_nyc_2025");
 
 
 // Logic behind the functionalities
@@ -107,7 +108,15 @@ class Controller {
       // return all data
       return new Promise((resolve, _) => resolve(data2024));
     }
-//
+  // getting all data
+  async getAllData2025() {
+    // return all data
+    return new Promise((resolve, _) => resolve(data2025));
+  }
+
+
+
+    //
   // getting a single data
   async getSingleData(X) {
     return new Promise((resolve, reject) => {
