@@ -44,6 +44,17 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify(allData));
     }
     //
+    // /v1/list2024
+    else if (req.url === "/v1/year2025" && req.method === "GET") {
+        // get the data.
+        const allData = await new AppData().getAllData2025();
+        // set the status code, and content-type
+        res.writeHead(200, { "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*" });
+        // send the data
+        res.end(JSON.stringify(allData));
+    }
+    //
 
 	    //
       // /api/v1/today : GET
