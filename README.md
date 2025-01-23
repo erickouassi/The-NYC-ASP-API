@@ -10,9 +10,9 @@ The data, information, and utility presented on this site will be used at risk. 
 
 _Default time zone (America/New\_York)
 
-For the benefit of developers, the API provides numerous endpoints. Keep in mind that all endpoints return JSON and support both HTTP and HTTPS.
+For the benefit of developers, the API provides numerous endpoints. So that you know, all endpoints return JSON and support both HTTP and HTTPS.
 
-Not all endpoints are made publicly accessible. Please feel free to reach out to me if you have any questions, suggestions, or feature requests.
+Not all endpoints are made publicly accessible. Please feel free to contact me if you have any questions, suggestions, or feature requests.
 
 The API is very straightforward. No authentication is required. Make Get requests to:  
 [https://the-nyc-asp-api.vercel.app/{endpoint}](https://the-nyc-asp-api.vercel.app)
@@ -31,3 +31,6 @@ About This Api
 --------------
 
 I make no promises about the continued existence of this API. By utilizing this API, you consent to promptly update your app to reflect any changes that are implemented.
+
+Source & credit: [https://www.nyc.gov/html/dot/html/motorist/alternate-side-parking.shtml](https://www.nyc.gov/html/dot/html/motorist/alternate-side-parking.shtml)
+
