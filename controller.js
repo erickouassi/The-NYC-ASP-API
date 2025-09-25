@@ -1,224 +1,188 @@
-//const data = require("./data");
+// Import data files
 const data = require("./data_asp_nyc");
 const data2022 = require("./data_asp_nyc_2022");
 const data2023 = require("./data_asp_nyc_2023");
 const data2024 = require("./data_asp_nyc_2024");
 const data2025 = require("./data_asp_nyc_2025");
 
-
 // Logic behind the functionalities
-var serverTime = "America/New_York";  // America/New_York /
+var serverTime = "America/New_York"; // America/New_York timezone
 
-// current datetime string inAmerica/New_York timezone
-let local_datetime_str = new Date().toLocaleString("en-US", { timeZone: serverTime });
-
-// create new Date object
-//let date_local = new Date(local_datetime_str);
-let d = new Date(local_datetime_str);
+// Get current date and time in New York City (America/New_York)
+var d = new Date(); // Current date and time in UTC
+// Format date components for New York time
+var nyDate = d.toLocaleString("en-US", { timeZone: serverTime });
+var nyDateObj = new Date(nyDate); // Create a Date object from New York time string
 
 // Months
-let allMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-let monthTxt = allMonths[d.getMonth()];  // May
+var allMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var monthTxt = allMonths[nyDateObj.getMonth()]; // September
 
 // year as (YYYY) format
-let year = d.getFullYear();
+var year = nyDateObj.getFullYear(); // 2025
 
 // month as (MM) format
-let month = ("0" + (d.getMonth() + 1)).slice(-2);
+var month = ("0" + (nyDateObj.getMonth() + 1)).slice(-2); // 09
 
 // date as (DD) format
-let date = ("0" + d.getDate()).slice(-2);
+var date = ("0" + nyDateObj.getDate()).slice(-2); // 25
 
-// date time in YYYY-MM-DD format
-//let date_time = year + "-" + month + "-" + date;
-let today = month + "/" + date + "/" + year; // "11/13/2022"
-//console.log(today);
+// date time in MM/DD/YYYY format
+var today = month + "/" + date + "/" + year; // "09/25/2025"
+console.log(today);
 
-
-//
 // Yesterday
-const y = new Date(d);
-//console.log(y);
+var y = new Date(nyDateObj);
+console.log(y);
 y.setDate(y.getDate() - 1);
-//let y_dd = String(y.getDate()).padStart(1, '0'); // 17
-// date as (DD) format
-let y_date = ("0" + y.getDate()).slice(-2);
-//let y_day = weekday[y.getDay()];   // Tuesday
-//let y_month = allMonths[y.getMonth()];  // May
-let y_mm = String(y.getMonth() + 1).padStart(2, '0'); // 11
-let y_yyyy = y.getFullYear();  // 2022
-
-let yesterday = y_mm +'/'+ y_date +'/'+ y_yyyy;   //  -> 11/12/2022
-//console.log(yesterday);
-
+var y_dd = String(y.getDate()).padStart(1, '0'); // 24
+var y_date = ("0" + y.getDate()).slice(-2); // 24
+var y_day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][y.getDay()]; // Wednesday
+var y_month = allMonths[y.getMonth()]; // September
+var y_mm = String(y.getMonth() + 1).padStart(2, '0'); // 09
+var y_yyyy = y.getFullYear(); // 2025
+var yesterday = y_mm + '/' + y_date + '/' + y_yyyy; // "09/24/2025"
+console.log(yesterday);
 
 // Tomorrow
-const t = new Date(d);
+var t = new Date(nyDateObj);
 t.setDate(t.getDate() + 1);
-//let t_dd = String(t.getDate()).padStart(1, '0'); // 19
-// date as (DD) format
-let t_date = ("0" + t.getDate()).slice(-2);
-//let t_day = weekday[t.getDay()];   // Thursday
-//let t_month = allMonths[t.getMonth()];  // May
-let t_mm = String(t.getMonth() + 1).padStart(2, '0'); // 11
-let t_yyyy = t.getFullYear();  // 2022
-
-let tomorrow = t_mm +'/'+ t_date +'/'+ t_yyyy;   //  -> 11/14/2022
-//console.log(tomorrow);
+var t_dd = String(t.getDate()).padStart(1, '0'); // 26
+var t_date = ("0" + t.getDate()).slice(-2); // 26
+var t_day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][t.getDay()]; // Friday
+var t_month = allMonths[t.getMonth()]; // September
+var t_mm = String(t.getMonth() + 1).padStart(2, '0'); // 09
+var t_yyyy = t.getFullYear(); // 2025
+var tomorrow = t_mm + '/' + t_date + '/' + t_yyyy; // "09/26/2025"
+console.log(tomorrow);
 
 // Next 7 days start & end
-const n = new Date(d);
+var n = new Date(nyDateObj);
 n.setDate(n.getDate() + 7);
-let n_dd = String(n.getDate()).padStart(2, '0'); // 19
-//let n_day = weekday[n.getDay()];   // Thursday
-//let n_month = allMonths[n.getMonth()];  // May
-let n_mm = String(n.getMonth() + 1).padStart(2, '0'); // 11
-let n_yyyy = n.getFullYear();  // 2022
+var n_dd = String(n.getDate()).padStart(2, '0'); // 02
+var n_day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][n.getDay()]; // Thursday
+var n_month = allMonths[n.getMonth()]; // October
+var n_mm = String(n.getMonth() + 1).padStart(2, '0'); // 10
+var n_yyyy = n.getFullYear(); // 2025
+var end_day = n_mm + '/' + n_dd + '/' + n_yyyy; // "10/02/2025"
+console.log(end_day);
 
-let end_day = n_mm +'/'+ n_dd +'/'+ n_yyyy;   //  -> May 19, 2022
-//console.log(end_day);
+// Index for data slicing
+var index_start = data.map(i => i.fullDate).indexOf(today);
+console.log(index_start);
+var index_end = data.map(i => i.fullDate).indexOf(end_day);
+// var id_num = index_end + 1;
+// console.log(id_num);
 
-
-const index_start = data.map(i => i.fullDate).indexOf(today);
-//console.log(index);
-const index_end = data.map(i => i.fullDate).indexOf(end_day);
-//const id_num = index_end + 1;
-//console.log(id_num);
-
-//const start_index = data.map(i => i.dateNum).indexOf("01/01");
-//console.log(start_index);
-//const end_index = data.map(i => i.dateNum).indexOf("12/31");
-//console.log(end_index); 
-
-
+// var start_index = data.map(i => i.dateNum).indexOf("01/01");
+// console.log(start_index);
+// var end_index = data.map(i => i.dateNum).indexOf("12/31");
+// console.log(end_index);
 
 class Controller {
-    // getting all data
-    async getAllData2022() {
-      // return all data
-      return new Promise((resolve, _) => resolve(data2022));
-    }
-  // getting all data
+  // Get all data for 2022
+  async getAllData2022() {
+    return new Promise((resolve, _) => resolve(data2022));
+  }
+
+  // Get all data for 2023
   async getAllData2023() {
-    // return all data
     return new Promise((resolve, _) => resolve(data2023));
   }
-    // getting all data
-    async getAllData2024() {
-      // return all data
-      return new Promise((resolve, _) => resolve(data2024));
-    }
-  // getting all data
+
+  // Get all data for 2024
+  async getAllData2024() {
+    return new Promise((resolve, _) => resolve(data2024));
+  }
+
+  // Get all data for 2025
   async getAllData2025() {
-    // return all data
     return new Promise((resolve, _) => resolve(data2025));
   }
 
-
-
-    //
-  // getting a single data
+  // Get a single data entry by date (MM/DD/YY)
   async getSingleData(X) {
     return new Promise((resolve, reject) => {
-      // get the data
-      let singleData = data.find((Y) => Y.dateMMDDYY === X);
-
+      var singleData = data.find((Y) => Y.dateMMDDYY === X);
       if (singleData) {
-        // return the data
         resolve(singleData);
       } else {
-        // return an error
-        reject(`Object with id ${X} not found `);
+        reject(`Object with id ${X} not found`);
       }
     });
   }
-//
- // getting the next 7 days data
- async get7Data() {
-  return new Promise((resolve, reject) => {
-    // get the data
-   // slice from 1..3 - add 1 as the end index is not included
-const data_7_days = data.slice(index_start, index_end);
 
-    if (data_7_days) {
-      // return the data
-      resolve(data_7_days);
-    } else {
-      // return an error
-      reject(`Object 7 days data  not found `);
-    }
-  });
-}
-  //
-  // getting today data
+  // Get the next 7 days of data
+  async get7Data() {
+    return new Promise((resolve, reject) => {
+      var data_7_days = data.slice(index_start, index_end);
+      if (data_7_days.length > 0) {
+        resolve(data_7_days);
+      } else {
+        reject(`Object 7 days data not found`);
+      }
+    });
+  }
+
+  // Get today's data
   async getTodayData() {
     return new Promise((resolve, reject) => {
-      // get the data
-	  let todayData = data.filter(function(todayIn) {
-    return todayIn.fullDate == today; });
-   // console.log(todayData);
-//
-      if (todayData) {
-        // return the data
+      var todayData = data.filter(function(todayIn) {
+        return todayIn.fullDate === today;
+      });
+      console.log(todayData);
+      if (todayData.length > 0) {
         resolve(todayData);
       } else {
-        // return an error
-        reject(`Today object not found `);
+        reject(`Today object not found`);
       }
     });
   }
-  
-  // getting yesterday data
+
+  // Get yesterday's data
   async getYesterdayData() {
     return new Promise((resolve, reject) => {
-      // get the data
-	  let yesterdayData = data.filter(function(yesterdayIn) {
-    return yesterdayIn.fullDate == yesterday; });
-   // console.log(yesterdayData);
-      if (yesterdayData) {
-        // return the data
+      var yesterdayData = data.filter(function(yesterdayIn) {
+        return yesterdayIn.fullDate === yesterday;
+      });
+      console.log(yesterdayData);
+      if (yesterdayData.length > 0) {
         resolve(yesterdayData);
       } else {
-        // return an error
-        reject(`Yesterday object not found `);
+        reject(`Yesterday object not found`);
       }
     });
   }
-  
-   // getting tomorrow data
-   async getTomorrowData() {
+
+  // Get tomorrow's data
+  async getTomorrowData() {
     return new Promise((resolve, reject) => {
-      // get the data
-	  let tomorrowData = data.filter(function(tomorrowIn) {
-    return tomorrowIn.fullDate == tomorrow; });
-   // console.log(tomorrowData);
-      if (tomorrowData) {
-        // return the data
+      var tomorrowData = data.filter(function(tomorrowIn) {
+        return tomorrowIn.fullDate === tomorrow;
+      });
+      console.log(tomorrowData);
+      if (tomorrowData.length > 0) {
         resolve(tomorrowData);
       } else {
-        // return an error
-        reject(`Tomorrow object not found `);
+        reject(`Tomorrow object not found`);
       }
     });
   }
-  //
- // getting holiday data
- async getHolidayData() {
+
+  // Get holiday data (where ASP rules are suspended)
+  async getHolidayData() {
     return new Promise((resolve, reject) => {
-      // get the data
-	  let holidayData = data.filter(function(holidayIn) {
-    return holidayIn.aspRules == "Suspended"; });
-   // console.log(holidayData);
-//
-      if (holidayData) {
-        // return the data
+      var holidayData = data.filter(function(holidayIn) {
+        return holidayIn.aspRules === "Suspended";
+      });
+      console.log(holidayData);
+      if (holidayData.length > 0) {
         resolve(holidayData);
       } else {
-        // return an error
-        reject(`Holiday object not found `);
+        reject(`Holiday object not found`);
       }
     });
   }
-  // add above
 }
+
 module.exports = Controller;
